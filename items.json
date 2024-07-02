@@ -1,0 +1,25 @@
+{
+    "items":
+    [
+
+    {"id":1,"category":"coffee","name":"expresso","price":22000,"img":"assets/images/expresso.png"},
+    {"id":2,"category":"coffee","name":"americano","price":70000,"img":"assets/images/americano.png"},
+    {"id":3,"category":"coffee","name":"latte","price":60000,"img":"assets/images/latte.png"},
+    {"id":4,"category":"coffee","name":"cappuccino","price":20000,"img":"assets/images/cappuccino.png"},
+    {"id":5,"category":"juice","name":"apple","price":20000,"img":"assets/images/apple.png"},
+    {"id":6,"category":"juice","name":"orange","price":80000,"img":"assets/images/orange.png"},
+    {"id":7,"category":"juice","name":"mango","price":90000,"img":"assets/images/mango.png"},
+    {"id":8,"category":"water","name":"pmg","price":30000,"img":"assets/images/pmg.png"},
+    {"id":9,"category":"water","name":"alpine","price":10000,"img":"assets/images/alpine.png"},
+    {"id":10,"category":"cake","name":"chocolate","price":20000,"img":"assets/images/chocolate.png"},
+    {"id":11,"category":"cake","name":"butter","price":27000,"img":"assets/images/butter.png"},
+    {"id":12,"category":"cake","name":"cheese","price":23000,"img":"assets/images/cheese.png"},
+    {"id":13,"category":"soda","name":"coke","price":40000,"img":"assets/images/coke.png"},
+    {"id":14,"category":"soda","name":"sprite","price":24000,"img":"assets/images/sprite.png"},
+    {"id":15,"category":"soda","name":"pepsi","price":28000,"img":"assets/images/pepsi.png"}
+
+
+    ]
+
+
+}

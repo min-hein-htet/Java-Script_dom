@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <div class="container bg-secondary text-white text-center p-5 mt-4">
+        <h1> DOM Example 1 </h1>
+    </div>
+
+    <div class="container mt-4 mb-4 d-flex flex-row justify-content-center item-center">
+        <div class="input-group mb-3" style="width:40%;">
+            <input type="text" class="form-control search-text" placeholder="Item Name">
+            <button class="input-group-text search-btn" id="basic-addon2"><i class="fa fa-search"></i> Serach </button>
+          </div>
+
+   </div>
+    <div class="container mt-4 mb-4 d-flex flex-row justify-content-center item-center gap-2">
+         <button class="btn btn-primary btn-lg all-item">All Items <i class="fa fa-list"></i>  </button>
+         <button class="btn btn-primary btn-lg coffee-item"> Coffee <i class="fa fa-coffee"></i> </button>
+         <button class="btn btn-primary btn-lg juice-item"> Juice <i class='fas fa-blender'></i> </button>
+         <button class="btn btn-primary btn-lg water-item"> Water <i class="fa-solid fa-bottle-water"></i></button>
+         <button class="btn btn-primary btn-lg soda-item"> Soda <i class='fas fa-glass-whiskey'></i></button>
+         <button class="btn btn-primary btn-lg cake-item"> Cake <i class='fas fa-cake'></i></button>
+
+
+    </div>
+    
+    <div class="container mt-4 mb-4 p-4">
+        <div class="row item-list">
+
+        </div>
+    </div>
+    
+
+
+    <script>
+        const url="./database/items.json";
+
+        const getItems=async (param)=>{
+
+            const res=await fetch(url);
+            const data=await res.json();
+
+            const item_list=data["items"];
+
+            if(param!==""){
+                result_list=item_list.filter((item)=>item.category==param)
+            }
+            else{
+                result_list=item_list;
+            }
+
+
+             //clear contents
+
+             document.querySelector(".item-list").innerHTML='';
+
+
+             //item distribution
+            result_list.forEach((item)=>{
+                 
+                const div=document.createElement("div");
+                div.classList.add("col-lg-3");
+                div.classList.add("p-3");
+
+               
+
+
+                div.innerHTML=`
+                           <div class="card" style="100%;">
+                            <img src="${item.img}" class="card-img-top" alt="..." style="width:250px;height:250px;">
+                            <div class="card-body">
+                                <h5 class="card-title">${item.name}</h5>
+                                <p class="card-text">${item.category}</p>
+                                <a href="#" class="btn btn-primary"> Details </a>
+                            </div>
+                            </div>
+                
+                        `
+
+                document.querySelector(".item-list").appendChild(div);
+
+
+            })
+        }
+
+
+        getItems(param="")
+
+
+        /*
+
+           All item Button 
+
+        */ 
+
+        const allBtn=document.querySelector(".all-item")
+        allBtn.addEventListener("click",(e)=>{
+            
+            e.preventDefault()
+
+            getItems(param="")
+
+        })
+
+
+         /*
+
+           All item Button End
+
+        */ 
+
+
+
+         /*
+
+           Coffee item Button 
+
+        */ 
+
+
+        const coffeeBtn=document.querySelector(".coffee-item")
+        coffeeBtn.addEventListener("click",(e)=>{
+            
+            e.preventDefault()
+
+            getItems(param="coffee")
+
+        })
+
+
+         /*
+
+           Coffee item Button End
+
+        */ 
+
+
+
+         /*
+
+           Juice item Button 
+
+        */ 
+
+        const juiceBtn=document.querySelector(".juice-item")
+        juiceBtn.addEventListener("click",(e)=>{
+            
+            e.preventDefault()
+
+            getItems(param="juice")
+
+        })
+
+
+         /*
+
+           Juice item Button End
+
+        */ 
+
+
+
+         /*
+
+           Water item Button 
+
+        */ 
+
+        const waterBtn=document.querySelector(".water-item")
+        waterBtn.addEventListener("click",(e)=>{
+            
+            e.preventDefault()
+
+            getItems(param="water")
+
+        })
+
+
+         /*
+
+           Water item Button End
+
+        */ 
+
+
+
+
+         /*
+
+           Soda item Button 
+
+        */ 
+
+        const sodaBtn=document.querySelector(".soda-item")
+        sodaBtn.addEventListener("click",(e)=>{
+            
+            e.preventDefault()
+
+            getItems(param="soda")
+
+        })
+
+
+
+         /*
+
+           Soda item Button End
+
+        */ 
+
+         /*
+
+           Soda item Button 
+
+        */ 
+
+        const cakeBtn=document.querySelector(".cake-item")
+        cakeBtn.addEventListener("click",(e)=>{
+            
+            e.preventDefault()
+
+            getItems(param="cake")
+
+        })
+
+
+
+         /*
+
+           Soda item Button End
+
+        */ 
+
+
+          /*
+
+           Soda item Button 
+
+        */ 
+
+        const searchBtn=document.querySelector(".search-btn")
+        searchBtn.addEventListener("click",(e)=>{
+            
+            e.preventDefault()
+
+            const search_term=document.querySelector(".search-text").value
+            getItems(search_term)
+
+        })
+
+
+
+         /*
+
+           Soda item Button End
+
+        */ 
+
+    </script>
+</body>
+</html>
